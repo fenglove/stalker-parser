@@ -1,12 +1,14 @@
-var versions = require('./package').version;
+#!/usr/bin/env node
+
+var versions = require('../package').version;
 
 //引入外部依赖
 var map = require('map-stream');
 var Commander = require('commander');
 //引入lib
-var walker = require('./lib/walker');
-var detector = require('./lib/detector');
-var query = require('./lib/query');
+var walker = require('../lib/walker');
+var detector = require('../lib/detector');
+var query = require('../lib/query');
 
 Commander.version(versions);
 
@@ -22,13 +24,13 @@ Commander
             this.commands[0].outputHelp()
             return;
         }
-        var Parser = require('./lib/insertdb');
+        var Parser = require('../lib/insertdb');
         Parser(filename, options || {});
 
     }).on('--help', function() {
         console.log('  Examples:');
         console.log();
-        console.log('  tracker insertdb path/to/log');
+        console.log('  stalker insertdb path/to/log');
         console.log();
     })
 //遍历
@@ -51,7 +53,7 @@ Commander
     }).on('--help', function() {
         console.log('  Examples:');
         console.log();
-        console.log('  tracker walk path/to/log');
+        console.log('  stalker walk path/to/log');
         console.log();
     });
 Commander.parse(process.argv);

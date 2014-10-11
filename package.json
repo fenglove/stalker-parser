@@ -1,5 +1,5 @@
 {
-  "name": "shadow-walker-tracker",
+  "name": "stalker-parser",
   "version": "0.0.1",
   "description": "A nginx log parser",
   "author": {
@@ -7,13 +7,8 @@
     "email": "ksky521@gmail.com"
   },
   "bin": {
-    "stalker": "stalker.js"
+    "stalker": "bin/stalker"
   },
-  "keywords": [
-    "nginx",
-    "log",
-    "parser"
-  ],
   "engines": {
     "node": ">= 0.10"
   },
