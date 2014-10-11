@@ -1,0 +1,63 @@
+var versions = require('./package').version;
+
+//引入外部依赖
+var map = require('map-stream');
+var Commander = require('commander');
+//引入lib
+var walker = require('./lib/walker');
+var detector = require('./lib/detector');
+var query = require('./lib/query');
+
+Commander.version(versions);
+
+Commander
+//入库操作
+.command('insertdb')
+    .usage('[filename] [options]')
+    .description('parser a log file and insert into database')
+    .option('-t, --type [log_type]', 'nginx log type, hijack/badjs/feature')
+    .action(function(filename, options) {
+        if (typeof filename === 'object') {
+            console.log('ERROR: please input filename！');
+            this.commands[0].outputHelp()
+            return;
+        }
+        var Parser = require('./lib/insertdb');
+        Parser(filename, options || {});
+
+    }).on('--help', function() {
+        console.log('  Examples:');
+        console.log();
+        console.log('  tracker insertdb path/to/log');
+        console.log();
+    })
+//遍历
+.command('walk')
+    .usage('[filename] [options]')
+    .description('traverse a log file')
+    .option('-f, --format [nginx_log_format]', 'nginx log format')
+    .option('-e, --encoding [utf-8]', 'log file encode')
+    .action(function(filename, options) {
+        if (typeof filename === 'object') {
+            console.log('ERROR: please input filename！');
+            this.commands[0].outputHelp()
+            return;
+        }
+
+        walker(filename, options || {}).pipe(detector).pipe(query).pipe(map(function(data) {
+            console.log(data);
+        }));
+
+    }).on('--help', function() {
+        console.log('  Examples:');
+        console.log();
+        console.log('  tracker walk path/to/log');
+        console.log();
+    });
+Commander.parse(process.argv);
+
+
+if (!Commander.args[0]) {
+    Commander.stdout.write(Commander.helpInformation());
+    Commander.emit('--help');
+}
