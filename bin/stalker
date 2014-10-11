@@ -60,6 +60,6 @@ Commander.parse(process.argv);
 
 
 if (!Commander.args[0]) {
-    Commander.stdout.write(Commander.helpInformation());
+    process.stdout.write(Commander.helpInformation());
     Commander.emit('--help');
 }
