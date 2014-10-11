@@ -18,6 +18,7 @@ Commander.command('insertdb')
     .usage('[filename] [options]')
     .description('parser log and insert into database')
     .option('-t, --type [log_type]', 'nginx log type, hijack/badjs/feature')
+    .option('-c, --concurrency [number]', 'concurrency')
     .action(function(filename, options) {
         if (typeof filename === 'object') {
             console.log('ERROR: please input filename！');
