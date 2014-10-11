@@ -12,11 +12,11 @@ var query = require('../lib/query');
 
 Commander.version(versions);
 
-Commander
+
 //入库操作
-.command('insertdb')
+Commander.command('insertdb')
     .usage('[filename] [options]')
-    .description('parser a log file and insert into database')
+    .description('parser log and insert into database')
     .option('-t, --type [log_type]', 'nginx log type, hijack/badjs/feature')
     .action(function(filename, options) {
         if (typeof filename === 'object') {
@@ -32,9 +32,9 @@ Commander
         console.log();
         console.log('  stalker insertdb path/to/log');
         console.log();
-    })
+    });
 //遍历
-.command('walk')
+Commander.command('walk')
     .usage('[filename] [options]')
     .description('traverse a log file')
     .option('-f, --format [nginx_log_format]', 'nginx log format')
@@ -42,7 +42,7 @@ Commander
     .action(function(filename, options) {
         if (typeof filename === 'object') {
             console.log('ERROR: please input filename！');
-            this.commands[0].outputHelp()
+            this.commands[1].outputHelp()
             return;
         }
 
