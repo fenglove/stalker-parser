@@ -17,7 +17,7 @@
     "split": "^0.3.0",
     "map-stream": "^0.0.4",
     "stalker-detector": "^2.1.1",
-    "mysql": "^2.3.2",
+    "mysql": "^2.5.2",
     "queue": "^3.0.7"
   },
   "keywords": [
