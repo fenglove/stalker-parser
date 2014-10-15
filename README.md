@@ -11,6 +11,8 @@ npm install stalker-parser
 stalker walk nginx/log
 # 入库
 stalker insertdb nginx/log
+# 导出csv文件
+stalker csv nginx/log
 ```
 ## 配置
 创建`config.json`，格式如下：
@@ -22,9 +24,15 @@ stalker insertdb nginx/log
         "port": 3306,
         "user": "root",
         "passord": "",
-        "database": "tracker"
+        "database": "tracker",
+        "table": "test"
     },
     "database_timeout": 10000,
+    "fileds_order_map": {
+        "feature": ["id", "product_id", "ip", "access_time", "user_agent", "os_name", "os_version", "browser_name", "browser_version", "device_name", "device_version", "os_fullversion", "browser_fullversion", "device_fullversion", "screen", "device_pixel_ratio"],
+        "hijack": [],
+        "badjs": []
+    },
     "query_map": {
         "hijack": {},
         "badjs": {},

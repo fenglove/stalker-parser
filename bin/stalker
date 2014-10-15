@@ -18,7 +18,8 @@ Commander.command('insertdb')
     .usage('[filename] [options]')
     .description('parser log and insert into database')
     .option('-t, --type [log_type]', 'nginx log type, hijack/badjs/feature')
-    .option('-c, --concurrency [number]', 'concurrency')
+    .option('-C, --concurrency [number]', 'concurrency')
+    .option('-c, --config [filename]', 'config file path')
     .action(function(filename, options) {
         if (typeof filename === 'object') {
             console.log('ERROR: please input filename！');
@@ -55,6 +56,29 @@ Commander.command('walk')
         console.log('  Examples:');
         console.log();
         console.log('  stalker walk path/to/log');
+        console.log();
+    });
+//导出csv格式文件
+Commander.command('csv')
+    .usage('[filename] [options]')
+    .description('parser log and insert into database')
+    .option('-t, --type [log_type]', 'nginx log type, hijack/badjs/feature')
+    .option('-c, --config [filename]', 'config file path')
+    .option('-o, --output [filename]', 'output file name')
+    .option('-v, --view ', 'show progress bar')
+    .action(function(filename, options) {
+        if (typeof filename === 'object') {
+            console.log('ERROR: please input filename！');
+            this.commands[2].outputHelp()
+            return;
+        }
+        var Parser = require('../lib/csv');
+        Parser(filename, options || {});
+
+    }).on('--help', function() {
+        console.log('  Examples:');
+        console.log();
+        console.log('  stalker csv path/to/log');
         console.log();
     });
 Commander.parse(process.argv);
