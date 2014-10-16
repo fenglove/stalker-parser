@@ -9,7 +9,7 @@
         "table": "test"
     },
     "database_timeout": 10000,
-    "fileds_order_map": {
+    "fields_order_map": {
         "feature": ["id", "product_id", "ip", "access_time", "user_agent", "os_name", "os_version", "browser_name", "browser_version", "device_name", "device_version", "os_fullversion", "browser_fullversion", "device_fullversion", "screen", "device_pixel_ratio", "ftr_000", "ftr_001", "ftr_002", "ftr_003", "ftr_004", "ftr_005", "ftr_006", "ftr_007", "ftr_008", "ftr_009", "ftr_010", "ftr_011", "ftr_012", "ftr_013", "ftr_014", "ftr_015", "ftr_016", "ftr_017", "ftr_018", "ftr_019", "ftr_020", "ftr_021", "ftr_022", "ftr_023", "ftr_024", "ftr_025", "ftr_026", "ftr_027", "ftr_028", "ftr_029", "ftr_030", "ftr_031", "ftr_032", "ftr_033", "ftr_034", "ftr_035", "ftr_036", "ftr_037", "ftr_038", "ftr_039", "ftr_040", "ftr_041", "ftr_042", "ftr_043", "ftr_044", "ftr_045", "ftr_046", "ftr_047", "ftr_048", "ftr_049"],
         "hijack": [],
         "badjs": []
