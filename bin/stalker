@@ -66,6 +66,7 @@ Commander.command('csv')
     .option('-c, --config [filename]', 'config file path')
     .option('-o, --output [filename]', 'output file name')
     .option('-v, --view ', 'show progress bar')
+    .option('-i, --ipdata [filename]', 'add ip database file')
     .action(function(filename, options) {
         if (typeof filename === 'object') {
             console.log('ERROR: please input filename！');
