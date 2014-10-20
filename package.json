@@ -1,6 +1,6 @@
 {
   "name": "stalker-parser",
-  "version": "0.0.8-9",
+  "version": "0.0.9",
   "description": "A nginx log parser",
   "author": {
     "name": "Theo Wang",
