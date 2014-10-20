@@ -1,6 +1,6 @@
 {
   "name": "stalker-parser",
-  "version": "0.0.8-7",
+  "version": "0.0.8-8",
   "description": "A nginx log parser",
   "author": {
     "name": "Theo Wang",
@@ -19,7 +19,7 @@
     "stalker-detector": "^2.1.1",
     "mysql": "^2.5.2",
     "queue": "^3.0.7",
-    "stalker-ipfind": "^0.0.1"
+    "stalker-ipfind": "^0.0.3"
   },
   "keywords": [
     "stalker",
