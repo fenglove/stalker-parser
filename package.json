@@ -12,6 +12,10 @@
   "engines": {
     "node": ">= 0.10"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ksky521/stalker-parser"
+  },
   "dependencies": {
     "commander": "^2.2.0",
     "split": "^0.3.0",
